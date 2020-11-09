@@ -1,0 +1,17 @@
+{
+  "name": "canada-sgc-codes",
+  "version": "0.0.1",
+  "description": "A repository of Canadian Standard Geographical Classification codes at the provincial/territorial and census division levels.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "canada",
+    "sgc",
+    "counties",
+    "states"
+  ],
+  "author": "Borjan Babic",
+  "license": "ISC"
+}
