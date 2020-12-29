@@ -1,14 +1,22 @@
 const data = require("./data/canada-sgc-codes-v2");
 
 /**
- * Look up a third-level division by its friendly name and return its SGC code.
+ * Look up a third-level division by its friendly name and parent province, then return its SGC code.
  * @param {string} cd - The third-level division's human-readable name (e.g. "Belleville").
+ * @param {string} province - The second-level division's abbreviation (e.g. "ON").
  * @return {string} The SGC code.
  */
-const cdToCode = (cd) => {
-    if (!cd) throw new Error("Please provide an administrative division");
-    return data.find(entry => entry.level === "3" && entry.censusDivisionName === cd);
+const cdToCode = (cd, province) => {
+    if (!cd) throw new Error("Please provide a third-level division!");
+    if (!province) throw new Error("Please provide a second-level division!");
+    const { provincialCode } = provinceToCode(province);
+    return data.find(entry => entry.level === "3" && entry.provincialCode === provincialCode && entry.censusDivisionName === cd);
 };
+
+const provinceToCode = (province) => {
+    if (!province) throw new Error("Please provide a second-level division!");
+    return data.find(entry => entry.level === "2" && entry.provinceName === province);
+}
 
 /**
  * Look up a division by its SGC code and return its friendly name.
