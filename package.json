@@ -1,6 +1,6 @@
 {
   "name": "canada-sgc-codes",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A repository of Canadian Standard Geographical Classification codes at the provincial/territorial and census division levels.",
   "main": "index.js",
   "scripts": {
